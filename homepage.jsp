@@ -15,13 +15,13 @@ Select an option: <!-- the usual HTML way -->
 
 Enter your user name and password:
 <br>
-	<form method="post" action="sellsNewBeer.jsp">
+	<form method="post" action="checkLogin.jsp">
 	<table>
 	<tr>    
-	<td>User</td><td><input type="text" name="bar"></td>
+	<td>User</td><td><input type="text" name="user"></td>
 	</tr>
 	<tr>
-	<td>Password</td><td><input type="text" name="beer"></td>
+	<td>Password</td><td><input type="text" name="pass"></td>
 	</tr>
 	</table>
 	<input type="submit" value="Login">
@@ -30,13 +30,13 @@ Enter your user name and password:
 
 Create an account:
 <br>
-	<form method="post" action="sellsNewBeer.jsp">
+	<form method="post" action="checkCreate.jsp">
 	<table>
 	<tr>    
-	<td>User</td><td><input type="text" name="bar"></td>
+	<td>User</td><td><input type="text" name="user"></td>
 	</tr>
 	<tr>
-	<td>Password</td><td><input type="text" name="beer"></td>
+	<td>Password</td><td><input type="text" name="pass"></td>
 	</tr>
 	</table>
 	<input type="submit" value="Create Account">
