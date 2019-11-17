@@ -13,10 +13,11 @@
     rs = st.executeQuery("select * from account where accountname='" + userid + "' and password='" + pwd + "'");
     if (rs.next()) {
         session.setAttribute("user", userid); // the username will be stored in the session
-        out.println("welcome " + userid);
-        out.println("<a href='homepage.jsp'>Log out</a>");
+        out.println("Welcome " + userid);
+        out.println("<form action='homepage.jsp'><input type='submit' value='Log Out'/></form>");
         
     } else {
-        out.println("Invalid password/user does not exist <a href='homepage.jsp'>try again</a>");
+        out.println("Invalid Password or User does not exist");
+        out.println("<form action='homepage.jsp'><input type='submit' value='Try Again'/></form>");
     }
 %>
