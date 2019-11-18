@@ -10,7 +10,7 @@
     Connection con = DriverManager.getConnection("jdbc:mysql://dbproject.cvguwph9zu1e.us-east-2.rds.amazonaws.com:3306/AirlineFlight","admin", "Thomert1!");
     Statement st = con.createStatement();
     ResultSet rs;
-    rs = st.executeQuery("select * from account where accountname='" + userid + "' and password='" + pwd + "'");
+    rs = st.executeQuery("select * from account where accountname='" + userid + "' and pass='" + pwd + "'");
     if (rs.next()) {
         session.setAttribute("user", userid); // the username will be stored in the session
         out.println("Welcome " + userid);

@@ -53,8 +53,8 @@ CREATE TABLE Reservation
 
 CREATE TABLE account
 	(accountname CHAR(30),
-	 password CHAR(30)
-	 
+	 pass CHAR(30) NOT NULL,
+	 PRIMARY KEY (accountname)
 	);
 
 
