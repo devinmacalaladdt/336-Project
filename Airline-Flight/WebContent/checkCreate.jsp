@@ -7,7 +7,7 @@
     String userid = request.getParameter("user");   
     String pwd = request.getParameter("pass");
     Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://dbproject.cvguwph9zu1e.us-east-2.rds.amazonaws.com:3306/Airline-Flight","admin", "Thomert1!");
+    Connection con = DriverManager.getConnection("jdbc:mysql://dbproject.cvguwph9zu1e.us-east-2.rds.amazonaws.com:3306/AirlineFlight","admin", "Thomert1!");
     Statement st = con.createStatement();
     try{
     	
