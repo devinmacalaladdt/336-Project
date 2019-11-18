@@ -18,7 +18,7 @@ Select an option: <!-- the usual HTML way -->
 	<form method="post" action="checkLogin.jsp">
 	<table>
 	<tr>    
-	<td>User</td><td><input type="text" name="user"></td>
+	<td>Username</td><td><input type="text" name="user"></td>
 	</tr>
 	<tr>
 	<td>Password</td><td><input type="text" name="pass"></td>
@@ -33,10 +33,16 @@ Create an account:
 	<form method="post" action="checkCreate.jsp">
 	<table>
 	<tr>    
-	<td>User</td><td><input type="text" name="user"></td>
+	<td>Username</td><td><input type="text" name="user"></td>
 	</tr>
 	<tr>
 	<td>Password</td><td><input type="text" name="pass"></td>
+	</tr>
+	<tr>    
+	<td>First Name</td><td><input type="text" name="fname"></td>
+	</tr>
+	<tr>
+	<td>Last Name</td><td><input type="text" name="lname"></td>
 	</tr>
 	</table>
 	<input type="submit" value="Create Account">

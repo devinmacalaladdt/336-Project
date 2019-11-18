@@ -17,7 +17,7 @@
         out.println("<form action='homepage.jsp'><input type='submit' value='Log Out'/></form>");
         
     } else {
-        out.println("Invalid Password or User does not exist");
+        out.println("Invalid Password or Username does not exist");
         out.println("<form action='homepage.jsp'><input type='submit' value='Try Again'/></form>");
     }
 %>
