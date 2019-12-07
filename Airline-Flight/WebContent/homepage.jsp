@@ -21,7 +21,7 @@ Select an option: <!-- the usual HTML way -->
 	<td>Username</td><td><input type="text" name="user"></td>
 	</tr>
 	<tr>
-	<td>Password</td><td><input type="text" name="pass"></td>
+	<td>Password</td><td><input type="password" name="pass"></td>
 	</tr>
 	</table>
 	<input type="submit" value="Login">
@@ -36,7 +36,7 @@ Create an account:
 	<td>Username</td><td><input type="text" name="user"></td>
 	</tr>
 	<tr>
-	<td>Password</td><td><input type="text" name="pass"></td>
+	<td>Password</td><td><input type="password" name="pass"></td>
 	</tr>
 	<tr>    
 	<td>First Name</td><td><input type="text" name="fname"></td>

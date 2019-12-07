@@ -12,9 +12,23 @@
     ResultSet rs;
     rs = st.executeQuery("select * from account where accountname='" + userid + "' and pass='" + pwd + "'");
     if (rs.next()) {
-        session.setAttribute("user", userid); // the username will be stored in the session
-        out.println("Welcome " + userid);
-        out.println("<form action='homepage.jsp'><input type='submit' value='Log Out'/></form>");
+    	session.setAttribute("user", userid);
+    	if((rs.getString("account_type")).equals("a")){
+    		
+    		response.sendRedirect("admin.jsp");
+    		
+    	}else if((rs.getString("account_type")).equals("r")){
+    		
+    		response.sendRedirect("representative.jsp");
+    		
+    	}else{
+    		
+    		response.sendRedirect("customer.jsp");
+    		
+    	}
+         // the username will be stored in the session
+        
+        
         
     } else {
         out.println("Invalid Password or Username does not exist");

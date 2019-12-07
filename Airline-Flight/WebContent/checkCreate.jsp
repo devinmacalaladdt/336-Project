@@ -13,7 +13,7 @@
     Statement st = con.createStatement();
     try{
     	if(userid=="" || pwd==""){throw new NullPointerException("empty");}
-    	st.executeUpdate("insert into account values('" + userid + "','" + pwd + "','"+ fname + "','"+lname+ "')");
+    	st.executeUpdate("insert into account values('" + userid + "','" + pwd + "','"+ fname + "','"+lname+ "','"+"c')");
         out.println("Account Created");
         out.println("<form action='homepage.jsp'><input type='submit' value='Back to Log In'/></form>");
     	
