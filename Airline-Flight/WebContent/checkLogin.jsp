@@ -13,6 +13,7 @@
     rs = st.executeQuery("select * from account where accountname='" + userid + "' and pass='" + pwd + "'");
     if (rs.next()) {
     	session.setAttribute("user", userid);
+
     	if((rs.getString("account_type")).equals("a")){
     		
     		response.sendRedirect("admin.jsp");

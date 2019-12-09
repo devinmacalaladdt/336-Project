@@ -11,6 +11,6 @@
 </head>
 <body>
 <p>admin</p>
-<form action='homepage.jsp'><input type='submit' value='Logout'/></form>
+<form action='logout.jsp'><input type='submit' value='Logout'/></form>
 </body>
 </html>
