@@ -14,7 +14,7 @@ String airport = request.getParameter("airport");
 try{
 	
 	ResultSet rs = st.executeQuery("SELECT DISTINCT Flight AS flight FROM Flight WHERE 3letterID='"+airport+"'");
-	out.println("<h3>All flights arriving and departing from "+airport+"</h3>");
+	out.println("<h3>All flight numbers arriving and departing from "+airport+"</h3>");
 	while(rs.next()){
 		out.println(rs.getString("flight")+"<br>");
 	}
