@@ -22,32 +22,36 @@ Statement st = con.createStatement();
 
 %></h1>
 
-<h3>Add/Edit/Delete Customer</h3>
-<form action="updateCustomerAdmin.jsp">
+<h3>Delete Account</h3>
+<form action="deleteToolAdmin.jsp">
+
+	<label for="oldAccName">Current Account Name:</label>
+	<input type="text" id="oldAccName" name="oldAccName">
+	<br>
+	<button type="submit">Submit</button>
+
+</form>
+<hr>
+<h3>Add/Edit Customer</h3>
+<form action="updateCusAdmin.jsp">
 
 	<select name="op">
 		<option value="add">Add</option>
 		<option value="edit">Edit</option>
-		<option value="delete">Delete</option>
 	</select>
 	<br>
-	<label for="oldAccName">Old Account Name:</label>
+	<label for="oldAccName">Current Account Name:</label>
 	<input type="text" id="oldAccName" name="oldAccName">
+	<br>
 	<label for="newAccName">New Account Name:</label>
 	<input type="text" id="newAccName" name="newAccName">
 	<br>
-	<label for="oldPass">Old Password:</label>
-	<input type="text" id="oldPass" name="oldPass">
 	<label for="newPass">New Password:</label>
 	<input type="text" id="newPass" name="newPass">
 	<br>
-	<label for="oldFname">Old First Name:</label>
-	<input type="text" id="oldFname" name="oldFname">
 	<label for="newFname">New First Name:</label>
 	<input type="text" id="newFname" name="newFname">
 	<br>
-	<label for="oldLname">Old Last Name:</label>
-	<input type="text" id="oldLname" name="oldLname">
 	<label for="newLname">New Last Name:</label>
 	<input type="text" id="newLname" name="newLname">
 	<br>
@@ -55,36 +59,93 @@ Statement st = con.createStatement();
 
 </form>
 <hr>
-<h3>Add/Edit/Delete Customer Representative</h3>
+<h3>Add/Edit Customer Representative</h3>
 <form action="updateRepAdmin.jsp">
 
 	<select name="op">
 		<option value="add">Add</option>
 		<option value="edit">Edit</option>
-		<option value="delete">Delete</option>
 	</select>
 	<br>
-	<label for="oldAccName">Old Account Name:</label>
+	<label for="oldAccName">Current Account Name:</label>
 	<input type="text" id="oldAccName" name="oldAccName">
+	<br>
 	<label for="newAccName">New Account Name:</label>
 	<input type="text" id="newAccName" name="newAccName">
 	<br>
-	<label for="oldPass">Old Password:</label>
-	<input type="text" id="oldPass" name="oldPass">
 	<label for="newPass">New Password:</label>
 	<input type="text" id="newPass" name="newPass">
 	<br>
-	<label for="oldFname">Old First Name:</label>
-	<input type="text" id="oldFname" name="oldFname">
 	<label for="newFname">New First Name:</label>
 	<input type="text" id="newFname" name="newFname">
 	<br>
-	<label for="oldLname">Old Last Name:</label>
-	<input type="text" id="oldLname" name="oldLname">
 	<label for="newLname">New Last Name:</label>
 	<input type="text" id="newLname" name="newLname">
 	<br>
 	<button type="submit">Submit</button>
+
+</form>
+<hr>
+<h3>Obtain Sales Report</h3>
+<form action="obtainSalesAdmin.jsp">
+	
+	<select name="month">
+		<option value=01>January</option>
+		<option value=02>February</option>
+		<option value=03>March</option>
+		<option value=04>April</option>
+		<option value=05>May</option>
+		<option value=06>June</option>
+		<option value=07>July</option>
+		<option value=08>August</option>
+		<option value=09>September</option>
+		<option value=10>October</option>
+		<option value=11>November</option>
+		<option value=12>December</option>
+	</select>
+	<label for="year"> Year:</label>
+	<input type="text" id="year" name="year">
+	<button type="submit">Submit</button>
+	
+</form>
+<hr>
+<h3>View Reservations</h3>
+<form action="displayReservationAdmin.jsp">
+
+	List by: 
+	<select name="filter">
+		<option value=1>Flight</option>
+		<option value=2>Name</option>
+	</select>
+	<label for="data"> Flight number/Account name:</label>
+	<input type="text" id="data" name="data">
+	<button type="submit">Submit</button>
+
+</form>
+<hr>
+<h3>View Revenue Sources</h3>
+<form action="displayRevenueAdmin.jsp">
+	
+
+
+
+</form>
+<hr>
+<h3>Top Customer</h3>
+<form action="topCustomerAdmin.jsp">
+
+
+
+
+
+</form>
+<hr>
+<h3>Most Active Flights</h3>
+<form action="topFlightsAdmin.jsp">
+
+
+
+
 
 </form>
 <hr>
@@ -106,12 +167,7 @@ Statement st = con.createStatement();
 	<button type="submit">Submit</button>
 
 </form>
-
-
-
-
 <hr>
-
 <form action='logout.jsp'><input type='submit' value='Logout'/></form>
 </body>
 </html>
