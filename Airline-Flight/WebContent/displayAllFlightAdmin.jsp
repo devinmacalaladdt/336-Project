@@ -15,8 +15,13 @@ try{
 	
 	ResultSet rs = st.executeQuery("SELECT DISTINCT Flight AS flight FROM Flight WHERE 3letterID='"+airport+"'");
 	out.println("<h3>All flight numbers arriving and departing from "+airport+"</h3>");
+	int c = 0;
 	while(rs.next()){
 		out.println(rs.getString("flight")+"<br>");
+		c += 1;
+	}
+	if(c == 0){
+		out.println("No Flights for " + airport);
 	}
 	out.println("<form action='admin.jsp'><input type='submit' value='Return'/></form>");
 	
