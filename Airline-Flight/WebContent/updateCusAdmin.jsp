@@ -10,7 +10,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://dbproject.cvguwph9zu1
 Statement st = con.createStatement();
 String op = request.getParameter("op");
 
-String oldid = request.getParameter("oldAccName");
+String oldID = request.getParameter("oldAccName");
 String userid = request.getParameter("newAccName");   
 String pwd = request.getParameter("newPass");
 String fname = request.getParameter("newFname");
@@ -31,15 +31,41 @@ if(op.equals("add")){
     }
 }else if(op.equals("edit")){
 
-	try{
-		int r = st.executeUpdate("UPDATE AirlineFlight.account SET accountname='"+request.getParameter("newAccName")+"', pass='"+request.getParameter("newPass")+"', firstname='"+request.getParameter("newFname")+"', lastname='"+request.getParameter("newLname")+"' WHERE accountname="+request.getParameter("oldAccName"));
+	try{	
+		
+		if(userid == ""){
+			ResultSet rs = st.executeQuery("select accountname from AirlineFlight.account where accountname='"+oldID+"'");
+			while(rs.next()){
+				userid = rs.getString(1);
+			}
+		}
+		if(pwd == ""){
+			ResultSet rs = st.executeQuery("select pass from AirlineFlight.account where accountname='"+oldID+"'");
+			while(rs.next()){
+				pwd = rs.getString(1);
+			}
+		}
+		if(fname == ""){
+			ResultSet rs = st.executeQuery("select firstname from AirlineFlight.account where accountname='"+oldID+"'");
+			while(rs.next()){
+				fname = rs.getString(1);
+			}
+		}
+		if(lname == ""){
+			ResultSet rs = st.executeQuery("select lastname from AirlineFlight.account where accountname='"+oldID+"'");
+			while(rs.next()){
+				lname = rs.getString(1);
+			}
+		}
+		int r = st.executeUpdate("update AirlineFlight.account set accountname='"+userid+"', pass='"+pwd+"', firstname='"+fname+"', lastname='"+lname+"' where accountname='"+oldID+"'");
 		if(r==0){
-			out.println("Failed to edit Customer");
+			out.println("Failed to edit customer");
 			out.println("<form action='admin.jsp'><input type='submit' value='Try Again'/></form>");
 		}else{
 			out.println("Edited Customer");
 			out.println("<form action='admin.jsp'><input type='submit' value='Return'/></form>");
 		}
+		
 	}catch(Exception e){
 		out.println("Failed to edit Customer");
 		out.println("<form action='admin.jsp'><input type='submit' value='Try Again'/></form>");
