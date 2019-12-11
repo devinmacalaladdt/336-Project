@@ -51,7 +51,11 @@ Statement st = con.createStatement();
 
 
 
+<br>
 
+<form action='SortOnewayPrice.jsp'><input type='submit' value='Sort by Price'/></form>
+
+<br>
 
 <br>
 
