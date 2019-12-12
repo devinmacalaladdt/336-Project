@@ -11,7 +11,7 @@ Class.forName("com.mysql.jdbc.Driver");
 Connection con = DriverManager.getConnection("jdbc:mysql://dbproject.cvguwph9zu1e.us-east-2.rds.amazonaws.com:3306/AirlineFlight","admin", "Thomert1!");
 Statement st = con.createStatement();
 
-	ResultSet rs = st.executeQuery("select Ticket.Unique_number,Ticket.Fare,Ticket.Booking_fee,Ticket.class,Ticket.Price,Oneway.Unique_number from Ticket INNER JOIN Oneway on Ticket.Unique_number = Oneway.Unique_number;");
+	ResultSet rs = st.executeQuery("select * from Ticket NATURAL JOIN Oneway NATURAL JOIN Flight NATURAL JOIN Associated;");
 
 	%><table border=1 align=center style="text-align:center">
 	<thead>
@@ -21,6 +21,12 @@ Statement st = con.createStatement();
 		       <th>Booking Fee</th>
 		      <th>Class</th>
 		      <th>Price</th>
+		      <th>Flight</th>
+       <th>Departure Time</th>
+       <th>Days of Operation</th>
+       <th>Arrival Time</th>
+       <th>Airline</th>
+       <th>Airport</th>
 
  
 	    </tr>
@@ -35,6 +41,12 @@ Statement st = con.createStatement();
 		          <td><%=rs.getFloat("Booking_fee") %></td>
 		          <td><%=rs.getString("class") %></td>
 		          <td><%=rs.getFloat("Price") %></td>
+		          <td><%=rs.getInt("Flight") %></td>
+          <td><%=rs.getTime("Departure_time") %></td>
+          <td><%=rs.getString("Days_of_operation") %></td>
+          <td><%=rs.getTime("Arrival_time") %></td>
+          <td><%=rs.getString("2letterID") %></td>
+          <td><%=rs.getString("3letterID") %></td>
 	      </tr>
 	      <%}%>
 	     </tbody>
@@ -58,11 +70,6 @@ Statement st = con.createStatement();
 
 <br>
 
-<br>
-
-<form action='ViewOnewayWithFlights.jsp'><input type='submit' value='View Oneways with Flights'/></form>
-
-<br>
 
 <br>
 

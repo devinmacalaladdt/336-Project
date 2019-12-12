@@ -11,11 +11,16 @@ try{
 Class.forName("com.mysql.jdbc.Driver");
 Connection con = DriverManager.getConnection("jdbc:mysql://dbproject.cvguwph9zu1e.us-east-2.rds.amazonaws.com:3306/AirlineFlight","admin", "Thomert1!");
 Statement st = con.createStatement();
-ResultSet rs = st.executeQuery("select * from Flight;");
+ResultSet rs = st.executeQuery("select * from Flight NATURAL JOIN Ticket NATURAL JOIN Associated order by Price ASC;");
 
 %><table border=1 align=center style="text-align:center">
 <thead>
     <tr>
+    <th>Unique Number</th>
+		       <th>Fare</th>
+		       <th>Booking Fee</th>
+		      <th>Class</th>
+		      <th>Price</th>
        <th>Flight</th>
        <th>Departure Time</th>
        <th>Days of Operation</th>
@@ -29,6 +34,11 @@ ResultSet rs = st.executeQuery("select * from Flight;");
   {
       %>
       <tr>
+      <td><%=rs.getInt("Unique_number") %></td>
+		          <td><%=rs.getFloat("Fare") %></td>
+		          <td><%=rs.getFloat("Booking_fee") %></td>
+		          <td><%=rs.getString("class") %></td>
+		          <td><%=rs.getFloat("Price") %></td>
           <td><%=rs.getInt("Flight") %></td>
           <td><%=rs.getTime("Departure_time") %></td>
           <td><%=rs.getString("Days_of_operation") %></td>
@@ -45,30 +55,6 @@ catch(Exception e){
 }
 
 %>
-<br>
-
-<form action='SortbyTakeoff.jsp'><input type='submit' value='Sort by Takeoff'/></form>
-
-<br>
-
-<br>
-
-<form action='SortbyArrival.jsp'><input type='submit' value='Sort by Arrival'/></form>
-
-<br>
-
-<br>
-
-<form action='SortbyFlightNum.jsp'><input type='submit' value='Sort by Flight Number'/></form>
-
-<br>
-<br>
-
-<form action='ShowWithPrice.jsp'><input type='submit' value='Show with sorted Prices'/></form>
-
-<br>
-
-
 
 Looking to see if we have a particular service?
 <form action="MoreSpecificFlights.jsp">
@@ -88,9 +74,8 @@ Need to sort by particular criteria?
 	<select name="op">
 	
 		<option value="tickets">View Tickets</option>
-		<option value="byStops">By Flights Stops</option>
-		<option value="byDomestic">Domestic</option>
-		<option value="byInternational">International</option>
+		<option value="noStops">Flights With No Stops</option>
+		<option value="withStops">Flights with Stops</option>
 		
 		</select>
 		<button type="submit">Submit</button>
@@ -98,8 +83,24 @@ Need to sort by particular criteria?
 <hr>
 
 
+<br>
+
+<form action='SortbyArrival.jsp'><input type='submit' value='Sort by Arrival'/></form>
 
 <br>
+
+<br>
+
+<form action='SortbyTakeoff.jsp'><input type='submit' value='Sort by Takeoff'/></form>
+
+<br>
+
+<br>
+
+<form action='SortbyFlightNum.jsp'><input type='submit' value='Sort by Flight Number'/></form>
+
+<br>
+
 <br>
 
 <form action='home.jsp'><input type='submit' value='Return to Home'/></form>
@@ -111,4 +112,3 @@ Need to sort by particular criteria?
 <form action='Logout.jsp'><input type='submit' value='Logout'/></form>
 
 <br>
-
