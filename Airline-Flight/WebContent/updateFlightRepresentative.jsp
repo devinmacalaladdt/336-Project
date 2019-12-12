@@ -11,6 +11,7 @@ Connection con = DriverManager.getConnection("jdbc:mysql://dbproject.cvguwph9zu1
 Statement st = con.createStatement();
 
 String op = request.getParameter("op");
+int res = 0;
 int flight = -1;
 int stops = -1;
 try{
@@ -52,6 +53,49 @@ if(op.equals("add")){
 		
 	}
 	
+	
+	String str = request.getParameter("dest");
+	StringTokenizer defaultTokenizer = new StringTokenizer(str);
+	
+	try{
+		
+		while(defaultTokenizer.hasMoreTokens()){
+			
+			Statement st1 = con.createStatement();
+			int r1=st1.executeUpdate("insert into AirlineFlight.Destination values('"+defaultTokenizer.nextToken()+"',"+flight+")");	
+			
+		}
+		
+	}catch(Exception e){
+		
+		
+		
+	}
+	
+	if(request.getParameter("fl").equals("int")){
+		
+		try{
+			
+			Statement st1 = con.createStatement();
+			int r1=st1.executeUpdate("insert into AirlineFlight.International values("+flight+")");
+			
+		}catch(Exception e){}
+		
+	}else{
+		
+		try{
+			
+			Statement st1 = con.createStatement();
+			int r1=st1.executeUpdate("insert into AirlineFlight.Domestic values("+flight+")");
+			
+		}catch(Exception e){}
+		
+	}
+	
+	
+	
+	
+	
 }else if(op.equals("update")){
 	
 	try{
@@ -73,6 +117,64 @@ if(op.equals("add")){
 		
         out.println("Failed to update Flight");
         out.println("<form action='representative.jsp'><input type='submit' value='Try Again'/></form>");
+		
+	}
+	
+
+	String str2 = request.getParameter("dest");
+	StringTokenizer defaultTokenizer2 = new StringTokenizer(str2);
+	
+	try{
+		
+		Statement st1 = con.createStatement();
+		int r = st1.executeUpdate("delete from AirlineFlight.Destination where Flight="+flight);
+		
+		while(defaultTokenizer2.hasMoreTokens()){
+			
+			Statement st2 = con.createStatement();
+			int r1=st2.executeUpdate("insert into AirlineFlight.Destination values('"+defaultTokenizer2.nextToken()+"',"+flight+")");	
+			
+		}
+		
+	}catch(Exception e){
+		
+		
+		
+	}
+	
+	try{
+		
+		Statement st3 = con.createStatement();
+		int r3 = st3.executeUpdate("delete from AirlineFlight.Domestic where Flight="+flight);
+
+		
+	}catch(Exception e){}
+	
+	try{
+		
+		Statement st3 = con.createStatement();
+		int r3 = st3.executeUpdate("delete from AirlineFlight.International where Flight="+flight);
+
+		
+	}catch(Exception e){}
+	
+	if(request.getParameter("fl").equals("int")){
+		
+		try{
+			
+			Statement st2 = con.createStatement();
+			int r2=st2.executeUpdate("insert into AirlineFlight.International values("+flight+")");
+			
+		}catch(Exception e){}
+		
+	}else{
+		
+		try{
+			
+			Statement st2 = con.createStatement();
+			int r2=st2.executeUpdate("insert into AirlineFlight.Domestic values("+flight+")");
+			
+		}catch(Exception e){}
 		
 	}
 	
@@ -99,6 +201,7 @@ if(op.equals("add")){
         out.println("<form action='representative.jsp'><input type='submit' value='Try Again'/></form>");
 		
 	}
+	
 	
 }
 

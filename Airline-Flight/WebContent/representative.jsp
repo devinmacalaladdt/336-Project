@@ -136,8 +136,12 @@ out.println(rs.getString("firstname")+" "+rs.getString("lastname"));
 	<input type="text" id="arr-time" name="arr-time">
 	<label for="airline">Airline ID:</label>
 	<input type="text" id="airline" name="airline">
-	<label for="airport">Airport ID:</label>
+	<label for="airport">Departure Airport ID:</label>
 	<input type="text" id="airport" name="airport">
+	<label for="dest">Destination Airport IDs (space separated list):</label>
+	<input type="text" id="dest" name="dest"><br>
+	<input type="radio" name="fl" value="dom" checked> Domestic<br>
+  	<input type="radio" name="fl" value="int"> International<br>
 	<label for="stops">Number of Stops:</label>
 	<input type="text" id="stops" name="stops">
 	
