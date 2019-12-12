@@ -284,10 +284,10 @@ Statement st = con.createStatement();
 <form action="displayAllFlightAdmin.jsp">
 	<select name="airport">
 	<%
-	ResultSet rs1 = st.executeQuery("SELECT DISTINCT 3letterID AS airport FROM Airport");	
-	while(rs1.next()){		
+	ResultSet rs2 = st.executeQuery("SELECT DISTINCT 3letterID AS airport FROM Airport");	
+	while(rs2.next()){		
 		
-		String airport = rs1.getString("airport");	
+		String airport = rs2.getString("airport");	
 		%>		
 		<option value="<%= airport %>">
 			<%=airport%>
